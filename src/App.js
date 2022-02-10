@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component, PropTypes} from 'react';
+import { jsPDF } from "jspdf";
 
-function App() {
+const App = () => {
+  var doc = new jsPDF()
+
+  doc.setFont('Roboto-Medium', 'normal');
+  doc.text('привет!', 10, 10)
+
+  function somePDFCreator() {
+    const doc = new jsPDF();
+    console.log(doc.getFontList());
+  }
+
+  somePDFCreator()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <button onClick={()=>doc.save('a4.pdf')}>click</button>
     </div>
   );
-}
+};
 
 export default App;
+
