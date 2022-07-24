@@ -1,25 +1,13 @@
-import React, {Component, PropTypes} from 'react';
-import { jsPDF } from "jspdf";
+import React from 'react'
+import "./App.css"
+import Timer from './components/Timer'
 
 const App = () => {
-  var doc = new jsPDF()
-
-  doc.setFont('Roboto-Medium', 'normal');
-  doc.text('привет!', 10, 10)
-
-  function somePDFCreator() {
-    const doc = new jsPDF();
-    console.log(doc.getFontList());
-  }
-
-  somePDFCreator()
   return (
-    <div >
-      <button onClick={()=>doc.save('a4.pdf')}>click</button>
-      hello world
+    <div className="app">
+      <Timer />
     </div>
-  );
-};
+  )
+}
 
-export default App;
-
+export default App
